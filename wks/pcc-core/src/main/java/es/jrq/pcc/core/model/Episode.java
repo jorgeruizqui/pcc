@@ -25,6 +25,7 @@ public class Episode {
     public Episode() {
         this.episodeId = "";
         this.studioId = "";
+        this.episodeName = "";
     }
 
     /**
@@ -34,6 +35,7 @@ public class Episode {
      */
     public Episode(String episodeId, String episodeName, String studioId) {
         this.episodeId = episodeId;
+        this.episodeName = episodeName;
         this.studioId = studioId;
     }
 
