@@ -1,0 +1,9 @@
+es.jrq.pcc.core.dao
+es.jrq.pcc.core.dao.map
+es.jrq.pcc.core.model
+es.jrq.pcc.core.service
+es.jrq.pcc.web
+es.jrq.pcc.web.controller
+es.jrq.pcc.web.controller.json
+es.jrq.pcc.web.http
+es.jrq.pcc.web.http.json

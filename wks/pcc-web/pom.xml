@@ -1,0 +1,32 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>pcc-web</artifactId>
+	<packaging>jar</packaging>
+
+	<name>pcc-web</name>
+	<description>PCC Web layer implementation</description>
+
+	<parent>
+		<groupId>es.jrq.pcc</groupId>
+		<artifactId>pcc-def</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../pcc-def/pom.xml</relativePath>
+	</parent>
+	<dependencies>
+		<dependency>
+			<groupId>es.jrq.pcc</groupId>
+			<artifactId>pcc-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.googlecode.json-simple</groupId>
+			<artifactId>json-simple</artifactId>
+		</dependency>
+	</dependencies>
+
+</project>
