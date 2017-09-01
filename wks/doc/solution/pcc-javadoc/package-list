@@ -1,6 +1,7 @@
 es.jrq.pcc.core.dao
 es.jrq.pcc.core.dao.map
 es.jrq.pcc.core.model
+es.jrq.pcc.core.model.royalty
 es.jrq.pcc.core.service
 es.jrq.pcc.web
 es.jrq.pcc.web.controller
