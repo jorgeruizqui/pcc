@@ -3,6 +3,9 @@ package es.jrq.pcc.core.model;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 
+import es.jrq.pcc.core.model.royalty.DefaultRoyaltyCalculator;
+import es.jrq.pcc.core.model.royalty.IRoyaltyCalculator;
+
 /**
  * Bean class modeling Studio entity.
  * It will be referenced by its <code>id</code> field as 'Rights Owner'.
@@ -33,6 +36,11 @@ public class Studio {
     private BigInteger viewings;
 
     /**
+     * Instance of the royalty calculator.
+     */
+    private IRoyaltyCalculator royaltyCalculator;
+
+    /**
      * Default Constructor.
      */
     public Studio() {
@@ -40,6 +48,7 @@ public class Studio {
         this.name = "";
         this.payment = new BigDecimal(0.0);
         this.viewings = BigInteger.ZERO;
+        this.royaltyCalculator = new DefaultRoyaltyCalculator();
     }
 
     /**
@@ -53,6 +62,7 @@ public class Studio {
         this.name = name;
         this.payment = payment;
         this.viewings = viewings;
+        this.royaltyCalculator = new DefaultRoyaltyCalculator();
     }
 
     /**
@@ -112,16 +122,39 @@ public class Studio {
     }
 
     /**
-     * Registers a new viewing of an episode of this studio
+     * @return the royaltyCalculator
      */
-    public void registerViewing() {
+    public IRoyaltyCalculator getRoyaltyCalculator() {
+        return royaltyCalculator;
+    }
+
+    /**
+     * @param royaltyCalculator the royaltyCalculator to set
+     */
+    public void setRoyaltyCalculator(IRoyaltyCalculator royaltyCalculator) {
+        this.royaltyCalculator = royaltyCalculator;
+    }
+
+    /**
+     * Registers a new viewing of an episode of this studio
+     * @param episode Episode viewed
+     */
+    public void registerViewing(Episode episode) {
         this.viewings = this.viewings.add(BigInteger.ONE);
+        this.royaltyCalculator.calculateRoyalty(episode, this);
+    }
+
+    /**
+     * Increments the payment for this studio.
+     *
+     * @param amount Amount to be added
+     */
+    public void incrementPayment(Double amount) {
+        this.payment = new BigDecimal(amount).add(getPayment());
     }
 
     @Override
     public String toString() {
-        return "Studio [id=" + id + ", name=" + name
-                + ", payment=" + payment
-                + ", viewings=" + viewings + "]";
+        return "Studio [id=" + id + ", name=" + name + ", payment=" + payment + ", viewings=" + viewings + "]";
     }
 }

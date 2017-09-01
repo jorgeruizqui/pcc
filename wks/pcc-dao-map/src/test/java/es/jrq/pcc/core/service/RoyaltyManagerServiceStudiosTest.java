@@ -14,10 +14,12 @@ import org.junit.Test;
 import es.jrq.pcc.core.model.Episode;
 import es.jrq.pcc.core.model.Studio;
 import es.jrq.pcc.core.model.Viewing;
+import es.jrq.pcc.core.model.royalty.DefaultRoyaltyCalculator;
 
 /**
  * Royalty Manager Service studios Test class.
- * All test methods focused on testing studios service in Royalty Manager Service
+ * All test methods focused on testing studios service in Royalty Manager
+ * Service
  *
  * @author JRQ
  *
@@ -132,8 +134,9 @@ public class RoyaltyManagerServiceStudiosTest {
         assertNotNull(storedStudio);
         assertEquals(storedStudio.getId(), studioId);
 
-        // Obtain previous viewings of this studio
+        // Obtain previous viewings and royalties of this studio
         Integer previousViewings = storedStudio.getViewings().intValue();
+        BigDecimal previousRoyalties = storedStudio.getPayment();
 
         // Register the viewing
         royaltyManagerService.viewing(new Viewing(episodeId, customerId));
@@ -143,6 +146,8 @@ public class RoyaltyManagerServiceStudiosTest {
         assertNotNull(storedStudio);
         assertEquals(storedStudio.getId(), studioId);
         assertEquals(previousViewings + 1, storedStudio.getViewings().intValue());
+        assertEquals(previousRoyalties.add(new BigDecimal(DefaultRoyaltyCalculator.DEFAULT_AMOUNT)),
+                storedStudio.getPayment());
 
         royaltyManagerService.removeStudioById(studioId);
         royaltyManagerService.removeEpisodeById(episodeId);

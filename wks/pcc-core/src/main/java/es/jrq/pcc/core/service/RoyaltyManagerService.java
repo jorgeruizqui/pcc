@@ -176,8 +176,7 @@ public final class RoyaltyManagerService {
                 viewing.getEpisode());
 
         if (episode != null) {
-            this.royaltyManagerDAO.getStudioDAO().registerViewing(
-                    episode.getStudioId());
+            this.royaltyManagerDAO.getStudioDAO().registerViewing(episode);
         }
     }
 

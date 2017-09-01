@@ -8,6 +8,7 @@ import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 import es.jrq.pcc.core.dao.IStudioDAO;
+import es.jrq.pcc.core.model.Episode;
 import es.jrq.pcc.core.model.Studio;
 
 /**
@@ -62,10 +63,10 @@ public class MapStudioDAO implements IStudioDAO {
     }
 
     @Override
-    public void registerViewing(String studioId) {
-        Studio studio = getStudioById(studioId);
+    public void registerViewing(Episode episode) {
+        Studio studio = getStudioById(episode.getStudioId());
         if (studio != null) {
-            studio.registerViewing();
+            studio.registerViewing(episode);
         }
     }
 }

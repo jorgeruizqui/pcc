@@ -73,6 +73,12 @@
 				<version>${pcc.version}</version>
 			</dependency>
 
+			<dependency>
+				<groupId>es.jrq.pcc</groupId>
+				<artifactId>pcc-dao-map</artifactId>
+				<version>${pcc.version}</version>
+			</dependency>
+
 			<!-- Third-party dependencies -->
 			<!--dependency> <groupId>GROUP_ID</groupId> <artifactId>ART_ID</artifactId>
 				<version>VERSIOON</version> </dependency -->
@@ -311,6 +317,7 @@
 			</activation>
 			<modules>
 				<module>../pcc-core</module>
+				<module>../pcc-dao-map</module>
 				<module>../pcc-web</module>
 			</modules>
 

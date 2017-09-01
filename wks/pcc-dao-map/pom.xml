@@ -2,11 +2,11 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<artifactId>pcc-web</artifactId>
+	<artifactId>pcc-dao-map</artifactId>
 	<packaging>jar</packaging>
 
-	<name>pcc-web</name>
-	<description>PCC Web layer implementation</description>
+	<name>pcc-dao-map</name>
+	<description>PCC DAO Map memomry implementation</description>
 
 	<parent>
 		<groupId>es.jrq.pcc</groupId>
@@ -18,18 +18,6 @@
 		<dependency>
 			<groupId>es.jrq.pcc</groupId>
 			<artifactId>pcc-core</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>es.jrq.pcc</groupId>
-			<artifactId>pcc-dao-map</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.googlecode.json-simple</groupId>
-			<artifactId>json-simple</artifactId>
 		</dependency>
 	</dependencies>
 

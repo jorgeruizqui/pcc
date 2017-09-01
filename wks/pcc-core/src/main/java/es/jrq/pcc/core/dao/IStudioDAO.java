@@ -2,6 +2,7 @@ package es.jrq.pcc.core.dao;
 
 import java.util.List;
 
+import es.jrq.pcc.core.model.Episode;
 import es.jrq.pcc.core.model.Studio;
 
 /**
@@ -45,10 +46,10 @@ public interface IStudioDAO {
    void resetCounters();
 
    /**
-    * Registers a new viewing on the system for the specified studio.
-    * Do nothing if studio is not present in the system
-    * @param studioId Studio Identifier
+    * Registers a new viewing on the system for the specified episode.
+    * Do nothing if the episoode is not present in the system
+    * @param episode Episode viewed
     */
-   void registerViewing(String studioId);
+   void registerViewing(Episode episode);
 
 }
